@@ -58,14 +58,21 @@
   --slate-light: #8fa6c6;
   --ice: #c7d1da;
 
-  --bg: #f7f5f1;
+  /* ⚠️ THE PAGE GROUND IS THE PALE BLUE-GRAY, NOT LENS'S WARM OFF-WHITE.
+     The company palette's field colour is the blue family — the owner's call,
+     and the palette image agrees: its light swatch is blue-gray, and #F7F5F1
+     appears nowhere in the five. Lens keeps its own off-white; this property
+     is the blue one. Cards stay white so evidence sits on the brightest
+     surface, and the band tier goes one step deeper into the same hue. */
+  --bg: #e9edf1;
   --surface: #ffffff;
-  --surface-2: #efede8;
-  --band: #e9edf1;
+  --surface-2: #dfe5eb;
+  --band: #d7dfe7;
 
-  --ink: #24273a;   /* 14.72:1 on --surface */
-  --ink-2: #484c6b; /* 7.12:1 on --surface-2 */
-  --ink-3: #64698a; /* 4.54:1 on --band — the a11y floor */
+  --ink: #24273a;   /* 14.72:1 on --surface, 12.51:1 on --bg */
+  --ink-2: #484c6b; /* 6.56:1 on --surface-2 */
+  --ink-3: #5a5f7e; /* 4.62:1 on --band — the a11y floor. Darkened from #64698a,
+                       which measured 3.97:1 once the band went blue. */
 
   --border: #c7d1da;
   --border-ui: #728ba2; /* a control edge — WCAG 1.4.11, 3:1 */
@@ -428,6 +435,15 @@ a:hover { color: var(--ink); }
   font-size: 11.5px;
   color: var(--ink-3);
 }
+/* ⚠️ INSIDE A TABLE CELL, THE NOTE SETS A FLOOR. Auto table layout squeezed the
+   methodology table's rules column to 72px, and a seven-word note rendered one
+   word per line — found by the skinny-box sweep that now runs after the .steps
+   grid bug shipped the same shape. The wrapper scrolls horizontally, so forcing
+   the column wider costs a scroll on narrow screens, not an overflow. */
+/* td AND th: the runtime table annotates its ROW HEADERS with the same notes,
+   and a td-only selector left exactly those crushed at 380px. */
+.std-page td .std-note,
+.std-page th .std-note { min-width: 13em; }
 
 .std-static {
   margin-top: 12px;
@@ -469,6 +485,21 @@ a:hover { color: var(--ink); }
   font-family: var(--font-ui);
   font-size: 13.5px;
 }
+/* ⚠️ A CELL MAY SCROLL; IT MAY NOT BE CRUSHED. With width:100%, auto layout
+   compresses columns to fit a 380px screen before it lets the wrapper scroll,
+   and a prose cell ends up one word per line — the same shape as the .steps
+   grid bug, found by the same sweep. A floor on the cell flips the choice:
+   the table exceeds the viewport and the wrap scrolls, which is its job.
+   ⚠️ THE FLOOR SITS ABOVE THE SWEEP'S BAR ON PURPOSE. The skinny-box sweep
+   flags any prose element under 120px; a first pass set this floor to 6.5em
+   (≈88px), which is BELOW that bar — a fix and a detector disagreeing about
+   what "too narrow" means, so the sweep kept firing on cells the fix had
+   already touched. 9em ≈ 121px at the table's 13.5px type: the two agree,
+   and at desktop widths the widest squeezed column measured 119px, so the
+   change there is invisible. The source-listing table opts out: its number
+   gutter is meant to be narrow. */
+.std-page .std-table-wrap td:not(.src-n):not(.src-t),
+.std-page .std-table-wrap th[scope='row'] { min-width: 9em; }
 .std-page th, .std-page td {
   text-align: left;
   padding: 8px 10px;
@@ -770,7 +801,13 @@ a:hover { color: var(--ink); }
   font-variant-numeric: tabular-nums;
 }
 .steps b { display: block; color: var(--ink); font-weight: 600; }
-.steps span { display: block; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+/* ⚠️ grid-column: 2 IS THE FIX FOR A SHIPPED BUG. The <li> is a two-column grid
+   with THREE children — ::before, <b>, <span> — and auto-placement dropped the
+   span into column 1, which is 2.1rem wide. The result was one word per line,
+   live, on the home page. It shipped because verification measured scrollWidth
+   (this bug stretches vertically, not horizontally) and every screenshot call
+   failed without the page ever being LOOKED at. A measurement is not a look. */
+.steps span { display: block; grid-column: 2; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
 
 /* ---- 4. the artifact ------------------------------------------------------ */
 .artifact { margin: 0 0 52px; }

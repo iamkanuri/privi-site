@@ -58,21 +58,25 @@
   --slate-light: #8fa6c6;
   --ice: #c7d1da;
 
-  /* ⚠️ THE PAGE GROUND IS THE PALE BLUE-GRAY, NOT LENS'S WARM OFF-WHITE.
-     The company palette's field colour is the blue family — the owner's call,
-     and the palette image agrees: its light swatch is blue-gray, and #F7F5F1
-     appears nowhere in the five. Lens keeps its own off-white; this property
-     is the blue one. Cards stay white so evidence sits on the brightest
-     surface, and the band tier goes one step deeper into the same hue. */
+  /* ⚠️ THE PAGE GROUND IS THE PALE BLUE-GRAY, AND SINCE THE BLUE-GROUND CHANGE
+     (2026-08-07) LENS SHARES IT — these four values are byte-identical to
+     ShopifyACO/viewer/src/theme.css again, by the owner's decision.
+
+     ⚠️ ALL FOUR SURFACES SIT INSIDE [#E9EDF1 … white], AND THAT IS A FLOOR, NOT
+     A TASTE. The reserved result hues measure 4.51–4.54:1 on #E9EDF1 — the
+     4.5 floor, exactly — so no surface that can carry text may be darker than
+     the field. A first pass here ran the tiers DOWNWARD (#DFE5EB, #D7DFE7),
+     and crimson on that surface-2 measured 4.21:1: the BLOCK verdict on the
+     home page, under the floor, shipped. The tiers now go up. */
   --bg: #e9edf1;
   --surface: #ffffff;
-  --surface-2: #dfe5eb;
-  --band: #d7dfe7;
+  --surface-2: #eff2f5;
+  --band: #f1f4f7;
 
   --ink: #24273a;   /* 14.72:1 on --surface, 12.51:1 on --bg */
-  --ink-2: #484c6b; /* 6.56:1 on --surface-2 */
-  --ink-3: #5a5f7e; /* 4.62:1 on --band — the a11y floor. Darkened from #64698a,
-                       which measured 3.97:1 once the band went blue. */
+  --ink-2: #484c6b; /* 7.08:1 on --bg */
+  --ink-3: #64698a; /* 4.54:1 on --bg — the a11y floor. (Reverted: the darkened
+                       #5a5f7e existed only for the abandoned darker band.) */
 
   --border: #c7d1da;
   --border-ui: #728ba2; /* a control edge — WCAG 1.4.11, 3:1 */

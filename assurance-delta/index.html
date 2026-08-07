@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Assurance delta — acme-ticket-triage 1.4.2 to 1.5.0</title>
+<title>What one release broke: acme-ticket-triage 1.4.2 to 1.5.0 — verdict BLOCK</title>
 <meta name="description" content="A worked change-impact analysis on an agentic AI system: a new send capability, a widened scope, a new external destination and a weakened approval — with the controls each one touches, the evidence it invalidates, the evidence that survives by identity, and what would have to change to ship.">
 <link rel="canonical" href="https://privi.thirdocular.com/assurance-delta/">
 <meta property="og:title" content="One release. 24 of 29 evidence items no longer hold. Verdict: BLOCK.">
@@ -24,7 +24,8 @@
 <link rel="stylesheet" href="../ars-assets/report.css">
 <link rel="stylesheet" href="../ars-assets/delta.css">
 <main class="std-page">
-<header class="std-crumb no-print"><a href="../ars/">ARS v1.0</a> &rsaquo; Assurance delta</header>
+<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">Worked examples</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../engagement/">Work with us</a></nav>
+<header class="std-crumb no-print"><a href="../standard/">ARS v1.0</a> &rsaquo; Assurance delta</header>
 <div class="std-doc">
 <h1>acme-ticket-triage: 1.4.2 &rarr; 1.5.0</h1>
 <p class="std-subtitle">This agent changed. Here is which evidence, which tests and which approvals that change
@@ -149,7 +150,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tools[draft-reply]/approval</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../ars/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../ars/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../ars/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../ars/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../ars/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../standard/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../standard/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../standard/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../standard/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../standard/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection</p>
   <p><b>Evidence it invalidates:</b> <code>ev-approval-gate-enforced</code>, <code>ev-approval-volume-measured</code>, <code>ev-cross-tool-flow-policy</code>, <code>ev-destructive-inventory-complete</code>, <code>ev-eval-covers-destructive</code></p>
   
   <div class="ad-prov">change_id <code>approval_weakened:draft-reply</code> · claims tools[draft-reply]/approval/policy, tools[draft-reply]/approval/condition, tools[draft-reply]/approval/approval_class</div>
@@ -175,7 +176,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">autonomy/destructive_action_inventory[send-customer-email]</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../ars/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../ars/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../ars/#ARS-18">ARS-18</a> Kill switch with defined blast radius · <a href="../ars/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../ars/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../ars/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../ars/#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../standard/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../standard/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../standard/#ARS-18">ARS-18</a> Kill switch with defined blast radius · <a href="../standard/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../standard/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../standard/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../standard/#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
   <p><b>Evidence it invalidates:</b> <code>ev-approval-gate-enforced</code>, <code>ev-approval-volume-measured</code>, <code>ev-destructive-inventory-complete</code>, <code>ev-eval-covers-destructive</code>, <code>ev-idempotency-keys</code>, <code>ev-incident-taxonomy</code>, <code>ev-review-board-package</code></p>
   
   <div class="ad-prov">change_id <code>destructive_action_added:send-customer-email</code> · claims autonomy/destructive_action_inventory[send-customer-email]</div>
@@ -201,7 +202,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tools[send-email]/side_effect</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../ars/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../ars/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../ars/#ARS-18">ARS-18</a> Kill switch with defined blast radius · <a href="../ars/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../ars/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../ars/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../ars/#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../standard/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../standard/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../standard/#ARS-18">ARS-18</a> Kill switch with defined blast radius · <a href="../standard/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../standard/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../standard/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../standard/#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
   <p><b>Evidence it invalidates:</b> <code>ev-approval-gate-enforced</code>, <code>ev-approval-volume-measured</code>, <code>ev-destructive-inventory-complete</code>, <code>ev-eval-covers-destructive</code>, <code>ev-idempotency-keys</code>, <code>ev-incident-taxonomy</code>, <code>ev-review-board-package</code></p>
   
   <div class="ad-prov">change_id <code>destructive_action_added:send-email</code> · claims tools[send-email]/side_effect</div>
@@ -227,7 +228,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">data_sinks[customer-mailbox]/permitted_destinations</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../ars/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../ars/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../ars/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../ars/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../ars/#ARS-32">ARS-32</a> Resource quotas on downstream systems · <a href="../ars/#ARS-36">ARS-36</a> Human feedback loop is instrumented · <a href="../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../ars/#ARS-40">ARS-40</a> Retention, deletion, and data-subject request handling covers agent artifacts</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../standard/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../standard/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../standard/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../standard/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../standard/#ARS-32">ARS-32</a> Resource quotas on downstream systems · <a href="../standard/#ARS-36">ARS-36</a> Human feedback loop is instrumented · <a href="../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../standard/#ARS-40">ARS-40</a> Retention, deletion, and data-subject request handling covers agent artifacts</p>
   <p><b>Evidence it invalidates:</b> <code>ev-correlation-ids</code>, <code>ev-cross-tool-flow-policy</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-feedback-loop-instrumented</code>, <code>ev-incident-taxonomy</code>, <code>ev-injection-suite-run</code>, <code>ev-retention-covers-artifacts</code></p>
   
   <div class="ad-prov">change_id <code>external_destination_added:mail-relay.internal.acme.example/transactional</code> · claims data_sinks[customer-mailbox]</div>
@@ -253,7 +254,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">data_sinks[customer-mailbox]/permitted_destinations</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../ars/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../ars/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../ars/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../ars/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../ars/#ARS-32">ARS-32</a> Resource quotas on downstream systems · <a href="../ars/#ARS-36">ARS-36</a> Human feedback loop is instrumented · <a href="../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../ars/#ARS-40">ARS-40</a> Retention, deletion, and data-subject request handling covers agent artifacts</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../standard/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../standard/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../standard/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../standard/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../standard/#ARS-32">ARS-32</a> Resource quotas on downstream systems · <a href="../standard/#ARS-36">ARS-36</a> Human feedback loop is instrumented · <a href="../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../standard/#ARS-40">ARS-40</a> Retention, deletion, and data-subject request handling covers agent artifacts</p>
   <p><b>Evidence it invalidates:</b> <code>ev-correlation-ids</code>, <code>ev-cross-tool-flow-policy</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-feedback-loop-instrumented</code>, <code>ev-incident-taxonomy</code>, <code>ev-injection-suite-run</code>, <code>ev-retention-covers-artifacts</code></p>
   
   <div class="ad-prov">change_id <code>external_destination_added:notifications.vendor.example/dispatch</code> · claims data_sinks[customer-mailbox]</div>
@@ -279,7 +280,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tools[send-email]/outbound_transmission</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../ars/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../ars/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../ars/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../ars/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../ars/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../standard/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../standard/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../standard/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../standard/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../standard/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures</p>
   <p><b>Evidence it invalidates:</b> <code>ev-cross-tool-flow-policy</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-idempotency-keys</code>, <code>ev-incident-taxonomy</code>, <code>ev-injection-suite-run</code></p>
   
   <div class="ad-prov">change_id <code>outbound_transmission_added:send-email</code> · claims tools[send-email]/outbound_transmission</div>
@@ -306,7 +307,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tools[lookup-customer]/required_scopes</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="../ars/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../ars/#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="../ars/#ARS-13">ARS-13</a> Immutable audit plane · <a href="../ars/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../ars/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../ars/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../ars/#ARS-29">ARS-29</a> Tenant and context isolation · <a href="../ars/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer · <a href="../ars/#ARS-39">ARS-39</a> PII/sensitive data minimization in context assembly</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="../standard/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../standard/#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="../standard/#ARS-13">ARS-13</a> Immutable audit plane · <a href="../standard/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../standard/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../standard/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../standard/#ARS-29">ARS-29</a> Tenant and context isolation · <a href="../standard/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer · <a href="../standard/#ARS-39">ARS-39</a> PII/sensitive data minimization in context assembly</p>
   <p><b>Evidence it invalidates:</b> <code>ev-audit-plane-immutable</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-identity-propagation-trace</code>, <code>ev-injection-suite-run</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-server-side-authz-probe</code></p>
   
   <div class="ad-prov">change_id <code>permission_expanded:lookup-customer</code> · claims tools[lookup-customer]/required_scopes</div>
@@ -332,7 +333,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">skills[customer-correspondence]</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../ars/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../ars/#ARS-15">ARS-15</a> Reasoning trace retention with access controls · <a href="../ars/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../ars/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../ars/#ARS-24">ARS-24</a> Untrusted content is segregated and labeled · <a href="../ars/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../ars/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../ars/#ARS-29">ARS-29</a> Tenant and context isolation · <a href="../ars/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../ars/#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="../ars/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../ars/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="../ars/#ARS-36">ARS-36</a> Human feedback loop is instrumented · <a href="../ars/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer · <a href="../ars/#ARS-39">ARS-39</a> PII/sensitive data minimization in context assembly · <a href="../ars/#ARS-40">ARS-40</a> Retention, deletion, and data-subject request handling covers agent artifacts</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../standard/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../standard/#ARS-15">ARS-15</a> Reasoning trace retention with access controls · <a href="../standard/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../standard/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../standard/#ARS-24">ARS-24</a> Untrusted content is segregated and labeled · <a href="../standard/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../standard/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../standard/#ARS-29">ARS-29</a> Tenant and context isolation · <a href="../standard/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../standard/#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="../standard/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../standard/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="../standard/#ARS-36">ARS-36</a> Human feedback loop is instrumented · <a href="../standard/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer · <a href="../standard/#ARS-39">ARS-39</a> PII/sensitive data minimization in context assembly · <a href="../standard/#ARS-40">ARS-40</a> Retention, deletion, and data-subject request handling covers agent artifacts</p>
   <p><b>Evidence it invalidates:</b> <code>ev-cost-attribution</code>, <code>ev-destructive-inventory-complete</code>, <code>ev-eval-covers-destructive</code>, <code>ev-eval-suite-versioned</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-feedback-loop-instrumented</code>, <code>ev-retention-covers-artifacts</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-trace-retention-acl</code>, <code>ev-untrusted-segregation</code></p>
   
   <div class="ad-prov">change_id <code>skill_added:customer-correspondence</code> · claims skills[customer-correspondence]</div>
@@ -358,7 +359,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tools[send-email]</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="../ars/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../ars/#ARS-04">ARS-04</a> Session and credential lifetime bounds · <a href="../ars/#ARS-06">ARS-06</a> Closed tool registry · <a href="../ars/#ARS-07">ARS-07</a> Tool schemas are maximally constrained · <a href="../ars/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../ars/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../ars/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../ars/#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="../ars/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../ars/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../ars/#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="../ars/#ARS-18">ARS-18</a> Kill switch with defined blast radius · <a href="../ars/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../ars/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../ars/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../ars/#ARS-23">ARS-23</a> Timeout discipline at every boundary · <a href="../ars/#ARS-24">ARS-24</a> Untrusted content is segregated and labeled · <a href="../ars/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../ars/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../ars/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../ars/#ARS-29">ARS-29</a> Tenant and context isolation · <a href="../ars/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../ars/#ARS-32">ARS-32</a> Resource quotas on downstream systems · <a href="../ars/#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="../ars/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../ars/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="../ars/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer · <a href="../ars/#ARS-39">ARS-39</a> PII/sensitive data minimization in context assembly</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="../standard/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../standard/#ARS-04">ARS-04</a> Session and credential lifetime bounds · <a href="../standard/#ARS-06">ARS-06</a> Closed tool registry · <a href="../standard/#ARS-07">ARS-07</a> Tool schemas are maximally constrained · <a href="../standard/#ARS-08">ARS-08</a> Destructive actions are enumerated and gated · <a href="../standard/#ARS-09">ARS-09</a> Human approval gate on irreversible or high-impact actions · <a href="../standard/#ARS-10">ARS-10</a> Approval fatigue is designed against · <a href="../standard/#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="../standard/#ARS-12">ARS-12</a> Cross-tool data flow policy · <a href="../standard/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../standard/#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="../standard/#ARS-18">ARS-18</a> Kill switch with defined blast radius · <a href="../standard/#ARS-19">ARS-19</a> Idempotency on side-effecting operations · <a href="../standard/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../standard/#ARS-22">ARS-22</a> Rollback/compensation for committed actions · <a href="../standard/#ARS-23">ARS-23</a> Timeout discipline at every boundary · <a href="../standard/#ARS-24">ARS-24</a> Untrusted content is segregated and labeled · <a href="../standard/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../standard/#ARS-26">ARS-26</a> Output handling prevents downstream injection · <a href="../standard/#ARS-27">ARS-27</a> Data exfiltration channels are enumerated and constrained · <a href="../standard/#ARS-29">ARS-29</a> Tenant and context isolation · <a href="../standard/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../standard/#ARS-32">ARS-32</a> Resource quotas on downstream systems · <a href="../standard/#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="../standard/#ARS-34">ARS-34</a> Eval coverage maps to destructive-action inventory · <a href="../standard/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="../standard/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer · <a href="../standard/#ARS-39">ARS-39</a> PII/sensitive data minimization in context assembly</p>
   <p><b>Evidence it invalidates:</b> <code>ev-approval-gate-enforced</code>, <code>ev-approval-volume-measured</code>, <code>ev-correlation-ids</code>, <code>ev-cost-attribution</code>, <code>ev-cross-tool-flow-policy</code>, <code>ev-destructive-inventory-complete</code>, <code>ev-eval-covers-destructive</code>, <code>ev-eval-suite-versioned</code>, <code>ev-exfiltration-channels-enumerated</code>, <code>ev-idempotency-keys</code>, <code>ev-identity-propagation-trace</code>, <code>ev-injection-suite-run</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-server-side-authz-probe</code>, <code>ev-timeout-discipline</code>, <code>ev-untrusted-segregation</code></p>
   
   <div class="ad-prov">change_id <code>tool_added:send-email</code> · claims tools[send-email]</div>
@@ -385,7 +386,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">models[primary-reasoner]</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-15">ARS-15</a> Reasoning trace retention with access controls · <a href="../ars/#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="../ars/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../ars/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../ars/#ARS-28">ARS-28</a> Model and dependency supply chain is pinned · <a href="../ars/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../ars/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-15">ARS-15</a> Reasoning trace retention with access controls · <a href="../standard/#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="../standard/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../standard/#ARS-25">ARS-25</a> Injection resistance is tested, not assumed · <a href="../standard/#ARS-28">ARS-28</a> Model and dependency supply chain is pinned · <a href="../standard/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../standard/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection</p>
   <p><b>Evidence it invalidates:</b> <code>ev-cost-attribution</code>, <code>ev-injection-suite-run</code>, <code>ev-supply-chain-pinned</code>, <code>ev-trace-retention-acl</code></p>
   
   <div class="ad-prov">change_id <code>model_changed:primary-reasoner</code> · claims models[primary-reasoner]/identifier, models[primary-reasoner]/version</div>
@@ -412,7 +413,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">autonomy/approval_classes[customer-facing-send]/applies_to</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../ars/#ARS-10">ARS-10</a> Approval fatigue is designed against</p>
+  <p><b>Controls this touches:</b> <a href="../standard/#ARS-10">ARS-10</a> Approval fatigue is designed against</p>
   <p><b>Evidence it invalidates:</b> <code>ev-approval-volume-measured</code></p>
   
   <div class="ad-prov">change_id <code>approval_strengthened:class_customer-facing-send</code> · claims autonomy/approval_classes[customer-facing-send]/applies_to</div>
@@ -584,252 +585,252 @@ outvotes one that fired.</p>
 <thead><tr><th>Control</th><th>Title</th><th>Via</th><th>Evidence invalidated</th><th>Accepted evidence</th></tr></thead>
 <tbody>
 <tr>
-  <td><a href="../ars/#ARS-01">ARS-1.0-01</a></td>
+  <td><a href="../standard/#ARS-01">ARS-1.0-01</a></td>
   <td>End-user identity propagates to every downstream call</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-02">ARS-1.0-02</a></td>
+  <td><a href="../standard/#ARS-02">ARS-1.0-02</a></td>
   <td>Least-privilege tool credentials</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-04">ARS-1.0-04</a></td>
+  <td><a href="../standard/#ARS-04">ARS-1.0-04</a></td>
   <td>Session and credential lifetime bounds</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-06">ARS-1.0-06</a></td>
+  <td><a href="../standard/#ARS-06">ARS-1.0-06</a></td>
   <td>Closed tool registry</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-07">ARS-1.0-07</a></td>
+  <td><a href="../standard/#ARS-07">ARS-1.0-07</a></td>
   <td>Tool schemas are maximally constrained</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-08">ARS-1.0-08</a></td>
+  <td><a href="../standard/#ARS-08">ARS-1.0-08</a></td>
   <td>Destructive actions are enumerated and gated</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-09">ARS-1.0-09</a></td>
+  <td><a href="../standard/#ARS-09">ARS-1.0-09</a></td>
   <td>Human approval gate on irreversible or high-impact actions</td>
   <td>4 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-10">ARS-1.0-10</a></td>
+  <td><a href="../standard/#ARS-10">ARS-1.0-10</a></td>
   <td>Approval fatigue is designed against</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-11">ARS-1.0-11</a></td>
+  <td><a href="../standard/#ARS-11">ARS-1.0-11</a></td>
   <td>Tool-call authorization is enforced server-side</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-12">ARS-1.0-12</a></td>
+  <td><a href="../standard/#ARS-12">ARS-1.0-12</a></td>
   <td>Cross-tool data flow policy</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-13">ARS-1.0-13</a></td>
+  <td><a href="../standard/#ARS-13">ARS-1.0-13</a></td>
   <td>Immutable audit plane</td>
   <td>1 change(s)</td>
   <td>ev-audit-plane-immutable, ev-exfiltration-channels-enumerated, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-14">ARS-1.0-14</a></td>
+  <td><a href="../standard/#ARS-14">ARS-1.0-14</a></td>
   <td>End-to-end correlation IDs</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-15">ARS-1.0-15</a></td>
+  <td><a href="../standard/#ARS-15">ARS-1.0-15</a></td>
   <td>Reasoning trace retention with access controls</td>
   <td>2 change(s)</td>
   <td>ev-cost-attribution, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-supply-chain-pinned, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-16">ARS-1.0-16</a></td>
+  <td><a href="../standard/#ARS-16">ARS-1.0-16</a></td>
   <td>Full replayability of any agent run</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-18">ARS-1.0-18</a></td>
+  <td><a href="../standard/#ARS-18">ARS-1.0-18</a></td>
   <td>Kill switch with defined blast radius</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-19">ARS-1.0-19</a></td>
+  <td><a href="../standard/#ARS-19">ARS-1.0-19</a></td>
   <td>Idempotency on side-effecting operations</td>
   <td>4 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-21">ARS-1.0-21</a></td>
+  <td><a href="../standard/#ARS-21">ARS-1.0-21</a></td>
   <td>Graceful degradation path</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-22">ARS-1.0-22</a></td>
+  <td><a href="../standard/#ARS-22">ARS-1.0-22</a></td>
   <td>Rollback/compensation for committed actions</td>
   <td>6 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-23">ARS-1.0-23</a></td>
+  <td><a href="../standard/#ARS-23">ARS-1.0-23</a></td>
   <td>Timeout discipline at every boundary</td>
   <td>1 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-24">ARS-1.0-24</a></td>
+  <td><a href="../standard/#ARS-24">ARS-1.0-24</a></td>
   <td>Untrusted content is segregated and labeled</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-25">ARS-1.0-25</a></td>
+  <td><a href="../standard/#ARS-25">ARS-1.0-25</a></td>
   <td>Injection resistance is tested, not assumed</td>
   <td>6 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-26">ARS-1.0-26</a></td>
+  <td><a href="../standard/#ARS-26">ARS-1.0-26</a></td>
   <td>Output handling prevents downstream injection</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-27">ARS-1.0-27</a></td>
+  <td><a href="../standard/#ARS-27">ARS-1.0-27</a></td>
   <td>Data exfiltration channels are enumerated and constrained</td>
   <td>6 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-28">ARS-1.0-28</a></td>
+  <td><a href="../standard/#ARS-28">ARS-1.0-28</a></td>
   <td>Model and dependency supply chain is pinned</td>
   <td>1 change(s)</td>
   <td>ev-cost-attribution, ev-injection-suite-run, ev-supply-chain-pinned, ev-trace-retention-acl</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-29">ARS-1.0-29</a></td>
+  <td><a href="../standard/#ARS-29">ARS-1.0-29</a></td>
   <td>Tenant and context isolation</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-31">ARS-1.0-31</a></td>
+  <td><a href="../standard/#ARS-31">ARS-1.0-31</a></td>
   <td>Cost attribution to business unit of work</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-32">ARS-1.0-32</a></td>
+  <td><a href="../standard/#ARS-32">ARS-1.0-32</a></td>
   <td>Resource quotas on downstream systems</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-33">ARS-1.0-33</a></td>
+  <td><a href="../standard/#ARS-33">ARS-1.0-33</a></td>
   <td>A versioned eval suite exists and gates deployment</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-34">ARS-1.0-34</a></td>
+  <td><a href="../standard/#ARS-34">ARS-1.0-34</a></td>
   <td>Eval coverage maps to destructive-action inventory</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-35">ARS-1.0-35</a></td>
+  <td><a href="../standard/#ARS-35">ARS-1.0-35</a></td>
   <td>Production behavior monitoring with drift detection</td>
   <td>4 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-supply-chain-pinned, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-36">ARS-1.0-36</a></td>
+  <td><a href="../standard/#ARS-36">ARS-1.0-36</a></td>
   <td>Human feedback loop is instrumented</td>
   <td>3 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-37">ARS-1.0-37</a></td>
+  <td><a href="../standard/#ARS-37">ARS-1.0-37</a></td>
   <td>Defined severity taxonomy and incident process for agent failures</td>
   <td>5 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-correlation-ids, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-review-board-package</td>
   <td>manually verified, attested</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-38">ARS-1.0-38</a></td>
+  <td><a href="../standard/#ARS-38">ARS-1.0-38</a></td>
   <td>Data classification enforced at the retrieval layer</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-39">ARS-1.0-39</a></td>
+  <td><a href="../standard/#ARS-39">ARS-1.0-39</a></td>
   <td>PII/sensitive data minimization in context assembly</td>
   <td>3 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-audit-plane-immutable, ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-idempotency-keys, ev-identity-propagation-trace, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-40">ARS-1.0-40</a></td>
+  <td><a href="../standard/#ARS-40">ARS-1.0-40</a></td>
   <td>Retention, deletion, and data-subject request handling covers agent artifacts</td>
   <td>3 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-cross-tool-flow-policy, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-eval-suite-versioned, ev-exfiltration-channels-enumerated, ev-feedback-loop-instrumented, ev-incident-taxonomy, ev-injection-suite-run, ev-retention-covers-artifacts, ev-scope-minimality-review, ev-scope-static-scan, ev-trace-retention-acl, ev-untrusted-segregation</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../ars/#ARS-41">ARS-1.0-41</a></td>
+  <td><a href="../standard/#ARS-41">ARS-1.0-41</a></td>
   <td>Regulatory and review-board traceability package</td>
   <td>2 change(s)</td>
   <td>ev-approval-gate-enforced, ev-approval-volume-measured, ev-destructive-inventory-complete, ev-eval-covers-destructive, ev-idempotency-keys, ev-incident-taxonomy, ev-review-board-package</td>
@@ -1145,7 +1146,7 @@ not be: a number is arguable and a named fact is not.</p>
   <p>The machine-readable artifact ships beside this page as <a href="./ars-delta.json">ars-delta.json</a>, with the
   two contracts and the evidence ledger it was computed from. Every conclusion above names the id it carries there.
   Nothing on this page certifies anything.</p>
-  <p class="no-print"><a href="../ars/">ARS v1.0</a> &middot; <a href="../consulting/">Assessment</a> &middot; <a href="./undeclared-capability/">Read the undeclared-capability example</a> &middot; <a href="./runtime/">Runtime evidence</a> &middot;
+  <p class="no-print"><a href="../standard/">ARS v1.0</a> &middot; <a href="../engagement/">Assessment</a> &middot; <a href="./undeclared-capability/">Read the undeclared-capability example</a> &middot; <a href="./runtime/">Runtime evidence</a> &middot;
   <a href="https://lens.thirdocular.com">AisleLens</a></p>
 </footer>
 </div>

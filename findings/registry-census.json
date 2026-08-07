@@ -1,0 +1,43 @@
+{
+  "artifact": "registry-census",
+  "artifact_version": "0.1",
+  "what_it_is": "A count of the public Model Context Protocol server registry, enumerated to cursor exhaustion, and a statement of what a registry entry does and does not say about what an agent is allowed to do.",
+  "source": {
+    "artifact": "privi-probe-tier0",
+    "channel": "ch3-mcp",
+    "collected_at": "2026-08-07T11:59:07.703Z",
+    "sha256": "1c5476680d249afa548822d4a0999f3309c4a3d4a2cfe3f01f9d66f2dcfdbba9",
+    "published": false,
+    "why_not": "The source artifact names third-party servers, package identifiers and remote endpoints, and sits beside per-pair change classifications this project has reported as unreliable. Only the count is published."
+  },
+  "registry": {
+    "endpoint": "registry.modelcontextprotocol.io/v0/servers",
+    "method": "Complete cursor enumeration of registry.modelcontextprotocol.io/v0/servers at 100 per page",
+    "pages_fetched": 675,
+    "registry_entries": 67414,
+    "servers": 20451,
+    "enumeration_complete": true,
+    "exit_reason": "cursor_exhausted",
+    "note": "Cursor exhausted; this is the whole registry as published."
+  },
+  "what_an_entry_declares": {
+    "basis": "the registry's published server.json schema, read directly — NOT a measurement over the enumerated entries",
+    "declares": [
+      "packages — which package to install, from which registry, at which version",
+      "remotes — which URL to reach the server at"
+    ],
+    "does_not_declare": [
+      "which tools the server exposes",
+      "whether any tool changes state, sends, spends or deletes",
+      "which permissions or scopes a tool requires",
+      "who has to approve its use"
+    ],
+    "why_this_is_not_reported_as_a_share": "The probe kept a projection of each entry — name, versions, packages, remotes — because that is all it needed. A count of entries \"carrying no tool field\" computed from that projection would measure the projection, not the registry. The claim above is about what the schema provides, which is checkable against the specification, and it is stated as structure rather than as a measured proportion."
+  },
+  "limitations": [
+    "A count of the registry on one day. Registries grow; the collection date is recorded above.",
+    "It says nothing about how many of these servers are in production use, or by whom.",
+    "It is not a finding about any individual server, and no server is named here."
+  ],
+  "canonical_hash": "57068c268525b4256edfbd7cf17be97f5d37593bfcd7fb4400bfdea00ee02771"
+}

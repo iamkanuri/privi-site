@@ -3,61 +3,169 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agent Readiness Standard — ThirdOcular</title>
-<meta name="description" content="41 controls for production agentic AI systems.">
-
-<meta property="og:title" content="Agent Readiness Standard — ThirdOcular">
-<meta property="og:description" content="41 controls for production agentic AI systems.">
-<meta property="og:type" content="article">
+<title>Almost no AI agent can state what it is permitted to do — PRIVI</title>
+<meta name="description" content="An AI agent should be able to state what it is allowed to do. Across 200 public codebases, 103 of 4,445 tools say whether they change anything, and the largest public registry of agent declarations has no field for it at all.">
+<link rel="canonical" href="https://privi.thirdocular.com/">
+<meta property="og:title" content="2.3% of 4,445 agent tools say whether they change anything">
+<meta property="og:description" content="An AI agent should be able to state what it is allowed to do. Across 200 public codebases, 103 of 4,445 tools say whether they change anything, and the largest public registry of agent declarations has no field for it at all.">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="ThirdOcular">
-
+<meta property="og:url" content="https://privi.thirdocular.com/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://thirdocular.com/og.png">
 <meta property="og:image:alt" content="ThirdOcular">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Agent Readiness Standard — ThirdOcular">
-<meta name="twitter:description" content="41 controls for production agentic AI systems.">
+<meta name="twitter:title" content="2.3% of 4,445 agent tools say whether they change anything">
+<meta name="twitter:description" content="An AI agent should be able to state what it is allowed to do. Across 200 public codebases, 103 of 4,445 tools say whether they change anything, and the largest public registry of agent declarations has no field for it at all.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="./ars-assets/ars.css">
 </head>
 <body>
 <main class="std-page">
+<nav class="sitenav no-print" aria-label="Site"><span class="sitenav-here" aria-current="page">PRIVI</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="./standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./engagement/">Work with us</a></nav>
 <div class="std-doc">
-<h1>Agent Readiness Standard</h1>
-<p class="std-subtitle">ThirdOcular LLC &middot; ARS v1.0 &middot; draft</p>
-<p>This bundle is generated from <code>standard/v1.0/standard.json</code>. Nothing in it is written twice.</p>
-<article class="std-entry">
-  <div class="std-entry-head">
-    <h3 class="std-entry-title"><a href="./ars/">Agent Readiness Standard ARS v1.0</a></h3>
+<section class="lede">
+  <h1>An agent should be able to say what it is allowed to do.</h1>
+  <p class="lede-p">Almost none can. We looked in two places, and found the same gap in both.</p>
+</section>
+
+<section class="figures" aria-label="What we measured">
+<div class="figure">
+  <p class="figure-v"><b>2.3%</b><span class="figure-sub">103 of 4,445</span></p>
+  <p class="figure-body">Tools we found by reading 200 public agent codebases. Only these say whether they change anything &mdash; write, send, spend or delete. The other 4,342 say nothing either way, so nobody can tell from the code which ones are safe to run unattended.</p>
+  <p class="figure-src"><a href="./findings/">How this was measured, and what it cannot tell you</a></p>
+</div>
+<div class="figure">
+  <p class="figure-v"><b>20,451</b><span class="figure-sub">servers, whole registry</span></p>
+  <p class="figure-body">Entries in the largest public registry of agent declarations, counted until the listing ran out. Every entry records which package to run and where to reach it. <b>The registry has no field for what the agent may do.</b> Not one that is usually left empty &mdash; there is nowhere to put it.</p>
+  <p class="figure-src"><a href="./findings/registry-census.json">The count, and how it was taken</a></p>
+</div>
+</section>
+
+<p class="figures-note">
+  Both numbers carry the total they were counted out of, and both link to the file they came from. Every figure on
+  this site does.
+</p>
+<section class="artifact" id="example">
+  <h2>What that gap looks like inside one codebase</h2>
+  <p>
+    This is a real comparison, run by the tooling on this site, and every file behind it is published beside the
+    page. Nothing below is a mock-up.
+  </p>
+
+  <div class="panel">
+    <p class="panel-k">1 &middot; What the team declared</p>
+    <p class="panel-note">acme-records-assistant v2.3.0 &mdash; the written statement of what this agent is allowed to do.</p>
+    <blockquote class="panel-quote">Answers questions about the records register by reading it. Declared read-only: it holds no write scope, takes no action that changes a record, and has no way to transmit anything outside the platform.</blockquote>
+    <div class="std-table-wrap"><table><thead><tr><th>Tool it declares</th><th>What it may do</th></tr></thead><tbody>
+      <tr><td><code>lookup-account</code></td><td>read</td></tr>
+      <tr><td><code>search-records</code></td><td>read</td></tr>
+    </tbody></table></div>
   </div>
-  <p class="std-field-v">41 checks across 8 tiers. 20 readable from code and configuration, 21 requiring runtime or governance review.</p>
-</article>
-<article class="std-entry">
-  <div class="std-entry-head">
-    <h3 class="std-entry-title"><a href="./reports/fb4eab2bfaca8ed6/">Sample assessment report</a></h3>
+
+  <div class="panel">
+    <p class="panel-k">2 &middot; What the code actually registers</p>
+    <p class="panel-note">Found by parsing the TypeScript. This tool is written down nowhere as data &mdash; there is no
+    manifest entry to read, so anything that only reads manifests never sees it.</p>
+<div class="src">
+  <p class="src-file"><code>src/tools/registry.ts</code> <span class="src-cite">line 69</span></p>
+  <div class="std-table-wrap"><table class="src-table"><tbody>
+<tr><td class="src-n">69</td><td class="src-t">export const postToPartnerWebhook = defineTool({</td></tr>
+<tr><td class="src-n">70</td><td class="src-t">  name: &#39;post_to_partner_webhook&#39;,</td></tr>
+<tr><td class="src-n">71</td><td class="src-t">  description: &#39;Send the record payload to the partner integration endpoint.&#39;,</td></tr>
+<tr><td class="src-n">72</td><td class="src-t">  inputSchema: WebhookPayloadSchema,</td></tr>
+<tr class="src-hit"><td class="src-n">73</td><td class="src-t">  sideEffect: &#39;send&#39;,</td></tr>
+<tr><td class="src-n">74</td><td class="src-t">  requiresApproval: false,</td></tr>
+<tr><td class="src-n">75</td><td class="src-t">  timeoutMs: 15000,</td></tr>
+<tr><td class="src-n">76</td><td class="src-t">  maxRetries: 5,</td></tr>
+<tr><td class="src-n">77</td><td class="src-t">  scopes: [&#39;webhook.post&#39;, &#39;records.read&#39;],</td></tr>
+<tr><td class="src-n">78</td><td class="src-t">});</td></tr>
+  </tbody></table></div>
+</div>
+    <p class="panel-after">
+      It sends. It asks nobody first. It is not in the declaration above, which means no approval stands in front of
+      it and no test points at it.
+    </p>
   </div>
-  <p class="std-field-v">The static harness run against a deliberately unsafe toy agent. A worked example of what the automated subset can and cannot establish.</p>
-</article>
-<article class="std-entry">
-  <div class="std-entry-head">
-    <h3 class="std-entry-title"><a href="./assurance-delta/">Assurance delta — a worked change-impact example</a></h3>
+
+  <div class="panel panel-verdict">
+    <p class="panel-k">3 &middot; What the check returns</p>
+    <p class="verdict"><b>BLOCK</b> <span class="verdict-rule">A change of critical severity widens what the agent may do.</span></p>
+    <p>
+      10 of the 29 approvals, tests and sign-offs recorded for this
+      agent stopped being valid. The other 19 still hold, and the tooling says which is which
+      rather than asking anyone to re-check everything.
+    </p>
+    <p class="panel-after"><a href="./assurance-delta/undeclared-capability/">Read the whole comparison, with every file it was computed from &rarr;</a></p>
   </div>
-  <p class="std-field-v">One agent, two versions of its declaration. Which evidence, tests and approvals the change invalidated, which survived, and whether it can ship.</p>
-</article>
-<article class="std-entry">
-  <div class="std-entry-head">
-    <h3 class="std-entry-title"><a href="./findings/">What 200 public agent repositories declare, and what they do</a></h3>
-  </div>
-  <p class="std-field-v">A static scan of 200 permissively-licensed public agent repositories at pinned commits. Of 4,445 tools observed, 103 state anything at all about whether they change state. No repository is named.</p>
-</article>
-<article class="std-entry">
-  <div class="std-entry-head">
-    <h3 class="std-entry-title"><a href="./consulting/">Agent Readiness Review</a></h3>
-  </div>
-  <p class="std-field-v">A two-week assessment against all 41 checks.</p>
-</article>
+</section>
+<section id="what">
+  <h2>What this is</h2>
+  <p>
+    <b>PRIVI</b> &mdash; production readiness for agentic systems. Two things, and they are both public.
+  </p>
+  <p>
+    A <b>list of 41 checks</b> for an AI agent going into production: whose identity it acts under, what
+    it can destroy, who approved that, and how you would know afterwards. 20 of them can be read
+    straight from a repository. 21 cannot, and the list says which, rather than pretending a scanner
+    settles them.
+  </p>
+  <p>
+    And the <b>tooling that reads them</b>: it takes the written statement of what an agent is allowed to do, compares
+    it against what the code actually does, and reports the difference. When the two disagree, the code wins the
+    argument and the disagreement is the finding.
+  </p>
+  <p class="soft">
+    The list is a draft and says so in its own text. <b>No second party has applied it without us.</b> Until that
+    happens it is a rubric with a version history rather than a standard, and it carries that sentence rather than
+    burying it.
+  </p>
+  <p><a href="./standard/">Read all 41 checks &rarr;</a></p>
+</section>
+
+<section id="change">
+  <h2>Why the second release is the hard one</h2>
+  <p>
+    An agent you cannot describe is an agent you cannot approve. An agent you cannot describe <em>after it changed</em>
+    is one you cannot approve twice.
+  </p>
+  <p>
+    A review answers a question about one particular day. Then the agent ships again on Thursday, and by the second
+    month nobody can say which findings still hold. The usual answer is to re-run the whole review, which costs more
+    than most teams will pay more than once.
+  </p>
+  <p>
+    So the tooling answers the narrower question instead: <b>this release changed these things; here is what each one
+    breaks, which approvals stopped being valid, and which survived untouched.</b> Approvals survive by name, not by
+    still looking fine.
+  </p>
+  <ul class="examples">
+    <li><a href="./assurance-delta/undeclared-capability/">The declaration said read-only; the TypeScript could send.</a> The declaration
+        never changed &mdash; the code did.</li>
+    <li><a href="./assurance-delta/">One agent, two versions of its declaration.</a> Five named changes, and the cost
+        of each.</li>
+    <li><a href="./assurance-delta/runtime/">Evidence produced by running the thing</a>, rather than asserted &mdash; the same
+        agent hardened and unsafe, and what a local test genuinely cannot establish.</li>
+  </ul>
+</section>
+
+<section id="work">
+  <h2>Working with us</h2>
+  <p>
+    Two engagements: a two-week review of one agent against all 41 checks, and a per-release analysis
+    that says which of its findings a change just invalidated.
+  </p>
+  <p><a href="./engagement/"><b>What you get, and in what timeframe &rarr;</b></a></p>
+</section>
 <footer class="std-foot">
-  <p>sha256 12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
+  <p>ThirdOcular LLC &middot; <a href="mailto:Contact@thirdocular.com">Contact@thirdocular.com</a></p>
+  <p class="no-print">
+    <a href="./standard/">The checks</a> &middot;
+    <a href="./findings/">What we measured</a> &middot;
+    <a href="./engagement/">Work with us</a> &middot; <a href="./reports/fb4eab2bfaca8ed6/">A sample report</a> &middot;
+    <a href="https://lens.thirdocular.com">AisleLens</a>
+  </p>
+  <p>ARS v1.0 &middot; 12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
 </footer>
 </div>
 </main>

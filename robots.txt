@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://privi.thirdocular.com/sitemap.xml

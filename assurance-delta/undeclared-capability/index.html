@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Assurance delta — acme-records-assistant 2.2.0 to 2.3.0</title>
+<title>What one release broke: acme-records-assistant 2.2.0 to 2.3.0 — verdict BLOCK</title>
 <meta name="description" content="An agent whose tools exist only in TypeScript source. One of them posts record payloads to a partner endpoint, and the contract still describes a read-only tool set. Found by parsing the source, not by reading a manifest: the tool is declared nowhere as data. 16 controls affected, 2 human reviews required.">
 <link rel="canonical" href="https://privi.thirdocular.com/assurance-delta/undeclared-capability/">
 <meta property="og:title" content="The contract said read-only. The TypeScript could send. Verdict: BLOCK.">
@@ -24,7 +24,8 @@
 <link rel="stylesheet" href="../../ars-assets/report.css">
 <link rel="stylesheet" href="../../ars-assets/delta.css">
 <main class="std-page">
-<header class="std-crumb no-print"><a href="../../ars/">ARS v1.0</a> &rsaquo; Assurance delta</header>
+<nav class="sitenav no-print" aria-label="Site"><a href="../../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">Worked examples</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../engagement/">Work with us</a></nav>
+<header class="std-crumb no-print"><a href="../../standard/">ARS v1.0</a> &rsaquo; Assurance delta</header>
 <div class="std-doc">
 <h1>acme-records-assistant: 2.2.0 &rarr; 2.3.0</h1>
 <p class="std-subtitle">This agent changed. Here is which evidence, which tests and which approvals that change
@@ -129,7 +130,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tool:post-to-partner-webhook</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../../ars/#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
+  <p><b>Controls this touches:</b> <a href="../../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures · <a href="../../standard/#ARS-41">ARS-41</a> Regulatory and review-board traceability package</p>
   <p><b>Evidence it invalidates:</b> <code>ev-incident-taxonomy</code>, <code>ev-review-board-package</code></p>
   <div class="ad-support">
     <div class="ad-ba-k">observed support</div>
@@ -158,7 +159,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tool:post-to-partner-webhook</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../../ars/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures</p>
+  <p><b>Controls this touches:</b> <a href="../../standard/#ARS-37">ARS-37</a> Defined severity taxonomy and incident process for agent failures</p>
   <p><b>Evidence it invalidates:</b> <code>ev-incident-taxonomy</code></p>
   <div class="ad-support">
     <div class="ad-ba-k">observed support</div>
@@ -188,7 +189,7 @@ outvotes one that fired.</p>
   <div class="ad-prov">tool:post-to-partner-webhook</div>
 </div>
   </div>
-  <p><b>Controls this touches:</b> <a href="../../ars/#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="../../ars/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../../ars/#ARS-04">ARS-04</a> Session and credential lifetime bounds · <a href="../../ars/#ARS-06">ARS-06</a> Closed tool registry · <a href="../../ars/#ARS-07">ARS-07</a> Tool schemas are maximally constrained · <a href="../../ars/#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="../../ars/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../../ars/#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="../../ars/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../../ars/#ARS-23">ARS-23</a> Timeout discipline at every boundary · <a href="../../ars/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../../ars/#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="../../ars/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="../../ars/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer</p>
+  <p><b>Controls this touches:</b> <a href="../../standard/#ARS-01">ARS-01</a> End-user identity propagates to every downstream call · <a href="../../standard/#ARS-02">ARS-02</a> Least-privilege tool credentials · <a href="../../standard/#ARS-04">ARS-04</a> Session and credential lifetime bounds · <a href="../../standard/#ARS-06">ARS-06</a> Closed tool registry · <a href="../../standard/#ARS-07">ARS-07</a> Tool schemas are maximally constrained · <a href="../../standard/#ARS-11">ARS-11</a> Tool-call authorization is enforced server-side · <a href="../../standard/#ARS-14">ARS-14</a> End-to-end correlation IDs · <a href="../../standard/#ARS-16">ARS-16</a> Full replayability of any agent run · <a href="../../standard/#ARS-21">ARS-21</a> Graceful degradation path · <a href="../../standard/#ARS-23">ARS-23</a> Timeout discipline at every boundary · <a href="../../standard/#ARS-31">ARS-31</a> Cost attribution to business unit of work · <a href="../../standard/#ARS-33">ARS-33</a> A versioned eval suite exists and gates deployment · <a href="../../standard/#ARS-35">ARS-35</a> Production behavior monitoring with drift detection · <a href="../../standard/#ARS-38">ARS-38</a> Data classification enforced at the retrieval layer</p>
   <p><b>Evidence it invalidates:</b> <code>ev-correlation-ids</code>, <code>ev-cost-attribution</code>, <code>ev-eval-suite-versioned</code>, <code>ev-identity-propagation-trace</code>, <code>ev-scope-minimality-review</code>, <code>ev-scope-static-scan</code>, <code>ev-server-side-authz-probe</code>, <code>ev-timeout-discipline</code></p>
   <div class="ad-support">
     <div class="ad-ba-k">observed support</div>
@@ -363,112 +364,112 @@ outvotes one that fired.</p>
 <thead><tr><th>Control</th><th>Title</th><th>Via</th><th>Evidence invalidated</th><th>Accepted evidence</th></tr></thead>
 <tbody>
 <tr>
-  <td><a href="../../ars/#ARS-01">ARS-1.0-01</a></td>
+  <td><a href="../../standard/#ARS-01">ARS-1.0-01</a></td>
   <td>End-user identity propagates to every downstream call</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-02">ARS-1.0-02</a></td>
+  <td><a href="../../standard/#ARS-02">ARS-1.0-02</a></td>
   <td>Least-privilege tool credentials</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-04">ARS-1.0-04</a></td>
+  <td><a href="../../standard/#ARS-04">ARS-1.0-04</a></td>
   <td>Session and credential lifetime bounds</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-06">ARS-1.0-06</a></td>
+  <td><a href="../../standard/#ARS-06">ARS-1.0-06</a></td>
   <td>Closed tool registry</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-07">ARS-1.0-07</a></td>
+  <td><a href="../../standard/#ARS-07">ARS-1.0-07</a></td>
   <td>Tool schemas are maximally constrained</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-11">ARS-1.0-11</a></td>
+  <td><a href="../../standard/#ARS-11">ARS-1.0-11</a></td>
   <td>Tool-call authorization is enforced server-side</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-14">ARS-1.0-14</a></td>
+  <td><a href="../../standard/#ARS-14">ARS-1.0-14</a></td>
   <td>End-to-end correlation IDs</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-16">ARS-1.0-16</a></td>
+  <td><a href="../../standard/#ARS-16">ARS-1.0-16</a></td>
   <td>Full replayability of any agent run</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-21">ARS-1.0-21</a></td>
+  <td><a href="../../standard/#ARS-21">ARS-1.0-21</a></td>
   <td>Graceful degradation path</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-23">ARS-1.0-23</a></td>
+  <td><a href="../../standard/#ARS-23">ARS-1.0-23</a></td>
   <td>Timeout discipline at every boundary</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-31">ARS-1.0-31</a></td>
+  <td><a href="../../standard/#ARS-31">ARS-1.0-31</a></td>
   <td>Cost attribution to business unit of work</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-33">ARS-1.0-33</a></td>
+  <td><a href="../../standard/#ARS-33">ARS-1.0-33</a></td>
   <td>A versioned eval suite exists and gates deployment</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-35">ARS-1.0-35</a></td>
+  <td><a href="../../standard/#ARS-35">ARS-1.0-35</a></td>
   <td>Production behavior monitoring with drift detection</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-37">ARS-1.0-37</a></td>
+  <td><a href="../../standard/#ARS-37">ARS-1.0-37</a></td>
   <td>Defined severity taxonomy and incident process for agent failures</td>
   <td>2 change(s)</td>
   <td>ev-incident-taxonomy, ev-review-board-package</td>
   <td>manually verified, attested</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-38">ARS-1.0-38</a></td>
+  <td><a href="../../standard/#ARS-38">ARS-1.0-38</a></td>
   <td>Data classification enforced at the retrieval layer</td>
   <td>1 change(s)</td>
   <td>ev-correlation-ids, ev-cost-attribution, ev-eval-suite-versioned, ev-identity-propagation-trace, ev-scope-minimality-review, ev-scope-static-scan, ev-server-side-authz-probe, ev-timeout-discipline</td>
   <td>automatically verified, manually verified, attested (attestation alone cannot settle it)</td>
 </tr>
 <tr>
-  <td><a href="../../ars/#ARS-41">ARS-1.0-41</a></td>
+  <td><a href="../../standard/#ARS-41">ARS-1.0-41</a></td>
   <td>Regulatory and review-board traceability package</td>
   <td>1 change(s)</td>
   <td>ev-incident-taxonomy, ev-review-board-package</td>
@@ -721,7 +722,7 @@ not be: a number is arguable and a named fact is not.</p>
   <p>The machine-readable artifact ships beside this page as <a href="./ars-delta.json">ars-delta.json</a>, with the
   two contracts and the evidence ledger it was computed from. Every conclusion above names the id it carries there.
   Nothing on this page certifies anything.</p>
-  <p class="no-print"><a href="../../ars/">ARS v1.0</a> &middot; <a href="../../consulting/">Assessment</a> &middot; <a href="./../">Read the two-declaration example</a> &middot; <a href="../runtime/">Runtime evidence</a> &middot;
+  <p class="no-print"><a href="../../standard/">ARS v1.0</a> &middot; <a href="../../engagement/">Assessment</a> &middot; <a href="./../">Read the two-declaration example</a> &middot; <a href="../runtime/">Runtime evidence</a> &middot;
   <a href="https://lens.thirdocular.com">AisleLens</a></p>
 </footer>
 </div>

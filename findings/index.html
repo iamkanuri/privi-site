@@ -19,10 +19,12 @@
 <meta name="twitter:description" content="Of 4,445 tools observed across 200 public agent repositories, 103 state anything about whether they change state. A static scan at pinned commits, with every figure carrying what could not be observed.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
+
+<script>try{var t=localStorage.getItem('privi_theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body class="findings">
 <main class="std-page findings-page">
-<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">What we measured</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../engagement/">Work with us</a></nav>
+<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">What we measured</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../engagement/">Work with us</a><button class="theme-toggle" type="button" data-theme-toggle hidden>Dark</button></nav>
 <nav class="std-crumb"><a href="../standard/">ARS v1.0</a> · <a href="../assurance-delta/">Assurance delta</a> · <a href="../engagement/">Consulting</a> · <a href="./brief/">One-page brief</a></nav>
 
 <header class="std-doc">
@@ -416,5 +418,6 @@ has applied.</p>
   <p class="std-hash">ARS v1.0 12309637f0a716f9923204a4338c07acca5107a3cb9aa02b0a20b48902926d9c</p>
 </footer>
 </main>
+<script>(function(){var r=document.documentElement,b=document.querySelector('[data-theme-toggle]');if(!b)return;b.hidden=false;function s(){var d=r.dataset.theme==='dark';b.textContent=d?'Light':'Dark';b.setAttribute('aria-label','Switch to the '+(d?'light':'dark')+' theme')}s();b.addEventListener('click',function(){var n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('privi_theme',n)}catch(e){}s()})})()</script>
 </body>
 </html>

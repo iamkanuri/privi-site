@@ -19,6 +19,8 @@
 <meta name="twitter:description" content="This page is now published at /standard/.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
+
+<script>try{var t=localStorage.getItem('privi_theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta http-equiv="refresh" content="0; url=../standard/">
 <meta name="robots" content="noindex, follow">
 </head>
@@ -30,5 +32,6 @@
 <p>You should arrive there in a moment. If nothing happens, <a href="../standard/">follow the link</a>.</p>
 </div>
 </main>
+<script>(function(){var r=document.documentElement,b=document.querySelector('[data-theme-toggle]');if(!b)return;b.hidden=false;function s(){var d=r.dataset.theme==='dark';b.textContent=d?'Light':'Dark';b.setAttribute('aria-label','Switch to the '+(d?'light':'dark')+' theme')}s();b.addEventListener('click',function(){var n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('privi_theme',n)}catch(e){}s()})})()</script>
 </body>
 </html>

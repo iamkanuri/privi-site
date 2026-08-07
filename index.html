@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Almost no AI agent can state what it is permitted to do — PRIVI</title>
-<meta name="description" content="An AI agent should be able to state what it is allowed to do. Across 200 public codebases, 103 of 4,445 tools say whether they change anything, and the largest public registry of agent declarations has no field for it at all.">
+<title>PRIVI — find out what your AI agent can actually do</title>
+<meta name="description" content="PRIVI compares what a team says an AI agent is allowed to do against what its code actually does, and reports every difference with the file and line that proves it. 41 checks, published in full.">
 <link rel="canonical" href="https://privi.thirdocular.com/">
 <meta property="og:title" content="2.3% of 4,445 agent tools say whether they change anything">
-<meta property="og:description" content="An AI agent should be able to state what it is allowed to do. Across 200 public codebases, 103 of 4,445 tools say whether they change anything, and the largest public registry of agent declarations has no field for it at all.">
+<meta property="og:description" content="PRIVI compares what a team says an AI agent is allowed to do against what its code actually does, and reports every difference with the file and line that proves it. 41 checks, published in full.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ThirdOcular">
 <meta property="og:url" content="https://privi.thirdocular.com/">
@@ -16,41 +16,71 @@
 <meta property="og:image:alt" content="ThirdOcular">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="2.3% of 4,445 agent tools say whether they change anything">
-<meta name="twitter:description" content="An AI agent should be able to state what it is allowed to do. Across 200 public codebases, 103 of 4,445 tools say whether they change anything, and the largest public registry of agent declarations has no field for it at all.">
+<meta name="twitter:description" content="PRIVI compares what a team says an AI agent is allowed to do against what its code actually does, and reports every difference with the file and line that proves it. 41 checks, published in full.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="./ars-assets/ars.css">
+<link rel="stylesheet" href="./ars-assets/result.css">
+<script>try{var t=localStorage.getItem('privi_theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-<main class="std-page">
-<nav class="sitenav no-print" aria-label="Site"><span class="sitenav-here" aria-current="page">PRIVI</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="./standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./engagement/">Work with us</a></nav>
+<main class="std-page home">
+<nav class="sitenav no-print" aria-label="Site"><span class="sitenav-here" aria-current="page">PRIVI</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="./standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="./engagement/">Work with us</a><button class="theme-toggle" type="button" data-theme-toggle hidden>Dark</button></nav>
 <div class="std-doc">
 <section class="lede">
-  <h1>An agent should be able to say what it is allowed to do.</h1>
-  <p class="lede-p">Almost none can. We looked in two places, and found the same gap in both.</p>
-</section>
+  <p class="eyebrow">Production readiness for agentic AI</p>
+  <h1>Find out what your agent can actually do, before your review board does.</h1>
+  <p class="lede-p">
+    PRIVI compares what your team says an agent is allowed to do against what its code actually does, and
+    reports every difference with the file and line that proves it.
+  </p>
+  <p class="lede-p lede-sub">
+    The checks are published in full, with a content hash, so a result cites a specific text rather than a
+    version number. Where the tooling cannot settle something, it says so instead of scoring it.
+  </p>
 
-<section class="figures" aria-label="What we measured">
-<div class="figure">
-  <p class="figure-v"><b>2.3%</b><span class="figure-sub">103 of 4,445</span></p>
-  <p class="figure-body">Tools we found by reading 200 public agent codebases. Only these say whether they change anything &mdash; write, send, spend or delete. The other 4,342 say nothing either way, so nobody can tell from the code which ones are safe to run unattended.</p>
-  <p class="figure-src"><a href="./findings/">How this was measured, and what it cannot tell you</a></p>
-</div>
-<div class="figure">
-  <p class="figure-v"><b>20,451</b><span class="figure-sub">servers, whole registry</span></p>
-  <p class="figure-body">Entries in the largest public registry of agent declarations, counted until the listing ran out. Every entry records which package to run and where to reach it. <b>The registry has no field for what the agent may do.</b> Not one that is usually left empty &mdash; there is nowhere to put it.</p>
-  <p class="figure-src"><a href="./findings/registry-census.json">The count, and how it was taken</a></p>
-</div>
-</section>
+  <ul class="claims">
+    <li>Every check published before any assessment runs</li>
+    <li>Every finding carries the file and line it was read from</li>
+    <li>What the code does beats what the declaration claims</li>
+    <li>Re-runs over the same input produce the same bytes</li>
+    <li>21 of the 41 checks are not automatable, and the standard says which</li>
+  </ul>
 
-<p class="figures-note">
-  Both numbers carry the total they were counted out of, and both link to the file they came from. Every figure on
-  this site does.
-</p>
+  <p class="cta-row">
+    <a class="cta-primary" href="./engagement/">Start an assessment</a>
+    <a href="#example">See a complete example &rarr;</a>
+    <a href="./standard/">Read all 41 checks &rarr;</a>
+    <a href="./findings/">What we measured</a>
+  </p>
+</section>
+<section class="band-section" id="what-you-get">
+  <h2>What you get, and keep.</h2>
+  <p class="section-sub">Five artifacts, all of them checkable by somebody who was not in the room.</p>
+  <ul class="deliverables">
+    <li><b>A score against every check</b>, with the evidence each one rests on and where in the codebase it is.</li>
+    <li><b>A written statement of what your agent is allowed to do</b> — every tool, permission and approval
+        rule, in one vendor-neutral file. (The tooling calls it an Agent Contract.) It is yours either way.</li>
+    <li><b>A remediation plan</b>, ordered by blast radius rather than by effort.</li>
+    <li><b>The harness</b>, so your team re-runs the automated part on every change without us.</li>
+    <li><b>A per-release answer</b>: which approvals a change stopped being valid, and which still hold.</li>
+  </ul>
+</section>
+<section id="process">
+  <h2>Declare &middot; Observe &middot; Reconcile &middot; Decide &middot; Re-check</h2>
+  <p class="section-sub">The same five steps on every engagement, in the same order, with an artifact at each one.</p>
+  <ol class="steps">
+    <li><b>Declare</b><span>What the agent is permitted to do is written down once, as data, by the team accountable for it.</span></li>
+    <li><b>Observe</b><span>The code is parsed. Every tool, model, permission and approval rule the implementation actually carries is recorded, with its file and line.</span></li>
+    <li><b>Reconcile</b><span>The two are compared. Anything the code carries that the declaration does not is a finding — and so is anything neither can settle, which is reported rather than scored.</span></li>
+    <li><b>Decide</b><span>A verdict from named rules, each one printed in the artifact, with the exact conditions that would clear it. No score anywhere in the path.</span></li>
+    <li><b>Re-check</b><span>The next release re-runs it and reports only what moved: which approvals it cost, and which survived by name.</span></li>
+  </ol>
+</section>
 <section class="artifact" id="example">
-  <h2>What that gap looks like inside one codebase</h2>
-  <p>
-    This is a real comparison, run by the tooling on this site, and every file behind it is published beside the
-    page. Nothing below is a mock-up.
+  <h2>One real comparison, every part of it, nothing selected for effect.</h2>
+  <p class="section-sub">
+    This is the complete result the tooling produces on an agent whose declaration and implementation
+    disagree. Every file behind it is published beside this page. Nothing below is a mock-up.
   </p>
 
   <div class="panel">
@@ -90,7 +120,7 @@
 
   <div class="panel panel-verdict">
     <p class="panel-k">3 &middot; What the check returns</p>
-    <p class="verdict"><b>BLOCK</b> <span class="verdict-rule">A change of critical severity widens what the agent may do.</span></p>
+    <p class="verdict"><b class="state-block">BLOCK</b> <span class="verdict-rule">A change of critical severity widens what the agent may do.</span></p>
     <p>
       10 of the 29 approvals, tests and sign-offs recorded for this
       agent stopped being valid. The other 19 still hold, and the tooling says which is which
@@ -98,64 +128,52 @@
     </p>
     <p class="panel-after"><a href="./assurance-delta/undeclared-capability/">Read the whole comparison, with every file it was computed from &rarr;</a></p>
   </div>
-</section>
-<section id="what">
-  <h2>What this is</h2>
-  <p>
-    <b>PRIVI</b> &mdash; production readiness for agentic systems. Two things, and they are both public.
-  </p>
-  <p>
-    A <b>list of 41 checks</b> for an AI agent going into production: whose identity it acts under, what
-    it can destroy, who approved that, and how you would know afterwards. 20 of them can be read
-    straight from a repository. 21 cannot, and the list says which, rather than pretending a scanner
-    settles them.
-  </p>
-  <p>
-    And the <b>tooling that reads them</b>: it takes the written statement of what an agent is allowed to do, compares
-    it against what the code actually does, and reports the difference. When the two disagree, the code wins the
-    argument and the disagreement is the finding.
-  </p>
-  <p class="soft">
-    The list is a draft and says so in its own text. <b>No second party has applied it without us.</b> Until that
-    happens it is a rubric with a version history rather than a standard, and it carries that sentence rather than
-    burying it.
-  </p>
-  <p><a href="./standard/">Read all 41 checks &rarr;</a></p>
-</section>
 
-<section id="change">
-  <h2>Why the second release is the hard one</h2>
-  <p>
-    An agent you cannot describe is an agent you cannot approve. An agent you cannot describe <em>after it changed</em>
-    is one you cannot approve twice.
-  </p>
-  <p>
-    A review answers a question about one particular day. Then the agent ships again on Thursday, and by the second
-    month nobody can say which findings still hold. The usual answer is to re-run the whole review, which costs more
-    than most teams will pay more than once.
-  </p>
-  <p>
-    So the tooling answers the narrower question instead: <b>this release changed these things; here is what each one
-    breaks, which approvals stopped being valid, and which survived untouched.</b> Approvals survive by name, not by
-    still looking fine.
-  </p>
   <ul class="examples">
-    <li><a href="./assurance-delta/undeclared-capability/">The declaration said read-only; the TypeScript could send.</a> The declaration
-        never changed &mdash; the code did.</li>
-    <li><a href="./assurance-delta/">One agent, two versions of its declaration.</a> Five named changes, and the cost
-        of each.</li>
-    <li><a href="./assurance-delta/runtime/">Evidence produced by running the thing</a>, rather than asserted &mdash; the same
-        agent hardened and unsafe, and what a local test genuinely cannot establish.</li>
+    <li><a href="./assurance-delta/">One agent, two versions of its declaration</a> &mdash; five named changes, and the
+        cost of each.</li>
+    <li><a href="./assurance-delta/runtime/">Evidence produced by running the thing</a> &mdash; the same agent hardened and
+        unsafe, and what a local test genuinely cannot establish.</li>
+    <li><a href="./reports/fb4eab2bfaca8ed6/">A full sample report</a> &mdash; the automated subset against a deliberately unsafe agent.</li>
   </ul>
 </section>
-
-<section id="work">
-  <h2>Working with us</h2>
-  <p>
-    Two engagements: a two-week review of one agent against all 41 checks, and a per-release analysis
-    that says which of its findings a change just invalidated.
+<section class="band-section" id="why">
+  <h2>Almost no agent can answer the first question.</h2>
+  <p class="section-sub">
+    We pointed the same instruments at other people's code. Both figures carry the total they were counted out
+    of, and both link to the file they came from.
   </p>
-  <p><a href="./engagement/"><b>What you get, and in what timeframe &rarr;</b></a></p>
+  <div class="figures">
+<div class="figure">
+  <p class="figure-v"><b>2.3%</b><span class="figure-sub">103 of 4,445</span></p>
+  <p class="figure-body">Tools found by reading 200 public agent codebases. Only these say whether they change anything &mdash; write, send, spend or delete. The other 4,342 say nothing either way.</p>
+  <p class="figure-src"><a href="./findings/">How this was measured, and what it cannot tell you</a></p>
+</div>
+<div class="figure">
+  <p class="figure-v"><b>20,451</b><span class="figure-sub">servers, whole registry</span></p>
+  <p class="figure-body">Entries in the largest public registry of agent declarations, counted until the listing ran out. Every one records which package to run and where to reach it. <b>The registry has no field for what the agent may do</b> &mdash; not one usually left empty; there is nowhere to put it.</p>
+  <p class="figure-src"><a href="./findings/registry-census.json">The count, and how it was taken</a></p>
+</div>
+  </div>
+</section>
+<section id="limits">
+  <h2>What this does not do.</h2>
+  <ul class="limits">
+    <li><b>It does not certify anything.</b> The standard says so in its own scoring model, and no score produced
+        under it is a certification.</li>
+    <li><b>21 of the 41 checks cannot be read from code at all.</b> They need a running
+        system, or interviews and document review. The standard publishes which, rather than letting a scanner
+        imply it settled them.</li>
+    <li><b>A declaration that is simply wrong about something no parser can see</b> is not caught by this, or by
+        anything else here.</li>
+    <li><b>It is not a judgement about whether the agent is good at its job.</b> That is a capability question;
+        this is a readiness one, and conflating them is how a security review gets answered with a demo.</li>
+    <li><b>No second party has applied this standard without us.</b> Until that happens it is a rubric with a
+        version history rather than a standard, and it carries that sentence rather than burying it.</li>
+  </ul>
+  <p class="closing-line">An agent you cannot describe is an agent you cannot approve &mdash; and cannot re-approve
+  after it changes.</p>
+  <p><a class="cta-primary" href="./engagement/">What an engagement involves &rarr;</a></p>
 </section>
 <footer class="std-foot">
   <p>ThirdOcular LLC &middot; <a href="mailto:Contact@thirdocular.com">Contact@thirdocular.com</a></p>
@@ -169,5 +187,6 @@
 </footer>
 </div>
 </main>
+<script>(function(){var r=document.documentElement,b=document.querySelector('[data-theme-toggle]');if(!b)return;b.hidden=false;function s(){var d=r.dataset.theme==='dark';b.textContent=d?'Light':'Dark';b.setAttribute('aria-label','Switch to the '+(d?'light':'dark')+' theme')}s();b.addEventListener('click',function(){var n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('privi_theme',n)}catch(e){}s()})})()</script>
 </body>
 </html>

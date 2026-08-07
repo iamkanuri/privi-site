@@ -19,10 +19,12 @@
 <meta name="twitter:description" content="Two engagements. A two-week review of one agent deployment against all 41 checks in ARS v1.0, and a per-release analysis that says which approvals a change just stopped being valid, which survived, and whether it can ship.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
+
+<script>try{var t=localStorage.getItem('privi_theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <main class="std-page">
-<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">Work with us</span></nav>
+<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">Work with us</span><button class="theme-toggle" type="button" data-theme-toggle hidden>Dark</button></nav>
 <div class="std-doc">
 <h1>Agent readiness, and what your last release cost you</h1>
 <p class="std-subtitle">Two engagements against ARS v1.0: an assessment
@@ -241,5 +243,6 @@ of one production agent deployment, and the change-impact analysis that keeps it
 </footer>
 </div>
 </main>
+<script>(function(){var r=document.documentElement,b=document.querySelector('[data-theme-toggle]');if(!b)return;b.hidden=false;function s(){var d=r.dataset.theme==='dark';b.textContent=d?'Light':'Dark';b.setAttribute('aria-label','Switch to the '+(d?'light':'dark')+' theme')}s();b.addEventListener('click',function(){var n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('privi_theme',n)}catch(e){}s()})})()</script>
 </body>
 </html>

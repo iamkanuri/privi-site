@@ -1,20 +1,53 @@
 /* ===========================================================================
-   ARS — the light editorial theme.
+   PRIVI — the shared company palette, light base and one dark opt-in.
 
-   The palette, the recorded contrast ratios, the type ramp and the print block
-   are taken from ShopifyACO/viewer/src/theme.css (lens.thirdocular.com), which
-   is the "light editorial theme" the build contract names. thirdocular.com
-   itself is deep navy; a document and a report are not that surface.
+   The six colours, their recorded contrast ratios and the reserved-hue rule are
+   ShopifyACO/viewer/src/theme.css v4.3 (lens.thirdocular.com). The values below
+   are that file's, not an interpretation of it:
 
-   ⚠️ THE THREE RESULT HUES ARE RESERVED, and the lens repo enforces it with
-   test/palette.test.ts. --pass slate, --requires-access sand, --not-proven
-   crimson mean pass, requires-access and not-proven and nothing else.
+     navy      #24273A   primary text, nav, the high-contrast CTA ground
+     slate     #596C8E   links, evidence chrome, the PASSING state
+     pale      #C7D1DA   borders, quiet containers
+     band      #E9EDF1   the pale blue-gray section band
+     sand      RESERVED  could not be determined — defined in result.css
+     crimson   RESERVED  did not hold — defined in result.css
 
-   ON A STANDARD PAGE THEY MAY NOT APPEAR AT ALL. A standard is a document;
-   nothing on it has failed. The automation-flag badges are therefore neutral
-   ink, NOT a red/amber/green scale — an [R] badge is not a warning, it says
-   which instrument reads the check. A report is a result surface and may use
-   the reserved hues; report.css does, and this file does not.
+   ⚠️ THE LAST TWO ARE NAMED HERE AND NOT SPELLED. Their hex values appear in
+   `result.css` and nowhere else, and `test/report.test.mjs` greps THIS file for
+   them — so writing one into a comment here, even as documentation, fails the
+   build. That is deliberate: the one way to be certain a document theme cannot
+   render a result hue is for the literal never to enter the file.
+
+   ⚠️ LIGHT IS `:root`, AND THERE IS NO prefers-color-scheme BLOCK. Copied from
+   lens along with the reason it is copied: that repo carried two hand-maintained
+   light blocks, a `[data-theme="light"]` and a media-query twin, and they drifted
+   — the media copy lost `--border-strong`, so every system-dark visitor who had
+   never touched the toggle silently lost emphasized hairlines. Light being the
+   base means there is nothing to duplicate and that class of bug cannot recur.
+   Dark is exactly one explicit opt-in block, and it persists.
+
+   ⚠️ THE RESERVED HUES MEAN ONE THING EACH, ACROSS BOTH PRODUCTS. On lens they
+   are proven / requires-store-access / not-proven. Here they carry PRIVI's own
+   result vocabulary, mapped one-to-one so a reader moving between the two sites
+   never has to relearn a colour:
+
+     --pass             slate     PROMOTE · a check that passed
+     --requires-access  sand      REVIEW  · could not be determined
+     --not-proven       crimson   BLOCK   · a check that did not hold
+
+   Crimson appears ONLY where something did not hold. Not buttons, not links,
+   not headings, not hover states, not "danger" tiles. In a product whose entire
+   pitch is proof, the rarest colour on the page must be the one that means the
+   proof is missing. `test/palette.test.mjs` enforces this the way lens's
+   test/palette.test.ts does.
+
+   ON THE STANDARD'S OWN PAGE THE RESULT HUES MAY NOT APPEAR AT ALL. A standard
+   is a document; nothing on it has failed. The automation-flag badges are
+   neutral ink, NOT a red/amber/green scale — an [R] badge is not a warning, it
+   says which instrument reads the check.
+
+   ⚠️ AND NEVER COLOUR ALONE. Every result state ships a glyph beside its hue,
+   because roughly one man in twelve cannot separate the crimson from the slate.
    =========================================================================== */
 
 :root {
@@ -39,7 +72,21 @@
   --border-strong: rgba(89, 108, 142, 0.38);
   --accent: #24273a;
   --accent-soft: rgba(89, 108, 142, 0.09);
+  --ink-hover: #3a3f5e;
   --line: var(--border);
+
+  /* ⚠️ THE THREE RESULT HUES ARE NOT DEFINED HERE, AND THAT IS THE POINT.
+     They live in `result.css`, which only the surfaces that show a RESULT link.
+     A stylesheet that does not carry a hue cannot render it, whatever a future
+     rule asks for — and the standard is a document, where nothing has failed.
+     A first pass at the dark theme put them here and two existing tests caught
+     it within the hour. */
+
+  /* ---- everything that is NOT a result ---- */
+  --attention: #24273a;
+  --attention-soft: color-mix(in srgb, var(--navy) 6%, transparent);
+  --advisory: #484c6b;
+  --advisory-soft: color-mix(in srgb, var(--advisory) 7%, transparent);
 
   --radius: 14px;
   --radius-sm: 10px;
@@ -49,6 +96,73 @@
   --font-ui: system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, 'Cascadia Mono', monospace;
 }
+
+/* ============ dark — an explicit opt-in, never the default ============
+   The same six colours inverted: navy becomes the surface family and ice becomes
+   the ink. slate-light carries the passing state here, because base slate is
+   ~2.5:1 on navy and unreadable at text size. Crimson and sand are lifted in
+   lightness at the same hue for the same reason.
+
+   ⚠️ THIS BLOCK MUST DECLARE THE SAME TOKEN NAMES AS `:root` ABOVE. The bug the
+   equivalent lens test exists for was a MISSING token, not a wrong value — a
+   dark visitor silently losing one variable and inheriting a light value for it.
+   `test/palette.test.mjs` asserts the two name sets agree exactly. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --navy: #1b2131;
+  --slate: #4f6890;
+  --slate-light: #7b9bc7;
+  --ice: #cbd8e4;
+
+  --bg: #171c29;
+  --surface: #1b2131;
+  --surface-2: #232b3d;
+  --band: #1f2637;
+
+  --ink: #cbd8e4;   /* ice — 11.1:1 on --surface */
+  --ink-2: #9baec6; /* secondary — 6.2:1 on --surface-2 */
+  --ink-3: #8598b2; /* tertiary — 4.8:1 on --surface-2, the a11y floor */
+
+  --border: #2e3850;
+  --border-ui: #55648a;
+  --border-strong: rgba(123, 155, 199, 0.34);
+  --accent: #e3ebf4;
+  --accent-soft: rgba(123, 155, 199, 0.10);
+  --ink-hover: #f2f6fa;
+  --line: var(--border);
+
+  /* The result hues' dark lifts live beside their light values, in result.css. */
+
+  --attention: #cbd8e4;
+  --attention-soft: color-mix(in srgb, var(--ice) 7%, transparent);
+  --advisory: #9baec6;
+  --advisory-soft: color-mix(in srgb, var(--advisory) 10%, transparent);
+
+  --radius: 14px;
+  --radius-sm: 10px;
+
+  --font-body: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-display: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-ui: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, 'Cascadia Mono', monospace;
+}
+
+/* The toggle itself. A quiet control in the nav, not a floating widget. */
+.theme-toggle {
+  margin-left: auto;
+  border: 1px solid var(--border-ui);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-3);
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  padding: 3px 11px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+.theme-toggle:hover { color: var(--ink); border-color: var(--ink-3); }
 
 * { box-sizing: border-box; }
 
@@ -521,45 +635,145 @@ a:hover { color: var(--ink); }
 .sitenav-here { color: var(--ink); font-weight: 600; padding: 2px 0; }
 .sitenav-sep { color: var(--slate-light); padding: 0 9px; }
 
-/* ---- the first screen ---------------------------------------------------- */
-.lede { margin: 8px 0 34px; }
+/* ---- 1. the first screen: who, what, and five claims ---------------------- */
+/* Everything above the artifact is skimmable in ten seconds. That is the whole
+   design constraint — a reader who does not yet know what you sell cannot
+   evaluate your evidence, so the evidence waits. */
+
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 16px;
+}
+
+.lede { margin: 4px 0 46px; }
 .lede h1 {
-  font-size: clamp(1.9rem, 5.2vw, 2.7rem);
-  line-height: 1.18;
+  font-size: clamp(1.85rem, 5vw, 2.6rem);
+  line-height: 1.16;
   letter-spacing: -0.015em;
-  margin: 0 0 14px;
+  margin: 0 0 18px;
   color: var(--ink);
   text-wrap: balance;
+  max-width: 19em;
 }
-.lede-p { font-size: 1.12rem; line-height: 1.55; color: var(--ink-2); margin: 0; max-width: 34em; }
+.lede-p { font-size: 1.13rem; line-height: 1.55; color: var(--ink-2); margin: 0 0 12px; max-width: 34em; }
+.lede-sub { font-size: 1rem; }
 
-/* Two figures, side by side where there is room and stacked where there is not.
-   Not cards with icons — a rule, a number, and the sentence that makes it mean
-   something. */
-.figures { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 0 0 14px; }
-@media (max-width: 640px) { .figures { grid-template-columns: 1fr; gap: 26px; } }
+/* Five one-line claims. No icons, no cards — a hairline and a hanging rule.
+   A feature grid says "we have features"; a list of one-line claims can be
+   read, and each line is a thing somebody could contradict. */
+.claims {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 26px;
+  border-top: 1px solid var(--border);
+  max-width: 40em;
+}
+.claims li {
+  margin: 0;
+  padding: 9px 0 9px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--ink-2);
+  position: relative;
+}
+.claims li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05em;
+  width: 9px;
+  height: 1px;
+  background: var(--slate);
+}
 
-.figure { border-top: 2px solid var(--ink); padding-top: 14px; min-width: 0; }
-.figure-v { margin: 0 0 8px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 10px; }
-.figure-v b {
-  font-family: var(--font-mono);
-  font-size: clamp(2.1rem, 6vw, 2.9rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1;
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 22px;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 14px;
+}
+/* ⚠️ THE PRIMARY ACTION IS NAVY, NOT A RESULT HUE. Crimson and sand mean
+   not-proven and could-not-be-determined; a button wearing one of them would
+   spend the two colours this site reserves for the truth. */
+.cta-primary {
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+.cta-primary:hover { background: var(--ink-hover); color: var(--bg); }
+
+/* ---- shared section furniture -------------------------------------------- */
+
+.home h2 {
+  font-size: clamp(1.3rem, 3.2vw, 1.65rem);
+  line-height: 1.25;
+  letter-spacing: -0.012em;
   color: var(--ink);
+  margin: 0 0 10px;
+  text-wrap: balance;
 }
-/* ⚠️ THE DENOMINATOR IS NOT SMALL PRINT. It sits on the same line as the
-   figure, in the same ink family. A share whose denominator is set in grey
-   6-point type is a share that is hiding what it was counted out of, and that
-   is the first thing a sceptical reader looks for. */
-.figure-sub { font-family: var(--font-mono); font-size: 0.95rem; color: var(--ink-2); }
-.figure-body { margin: 0 0 10px; line-height: 1.6; }
-.figure-src { margin: 0; font-family: var(--font-ui); font-size: 12.5px; }
-.figures-note { font-size: 14px; color: var(--ink-3); margin: 0 0 46px; max-width: 42em; }
+.section-sub { color: var(--ink-3); margin: 0 0 22px; max-width: 40em; }
 
-/* ---- the artifact, inline ------------------------------------------------ */
-.artifact { margin: 0 0 46px; }
+/* The one band, used to alternate section density without adding a card grid. */
+.band-section {
+  background: var(--band);
+  border-radius: var(--radius);
+  padding: 30px 26px 28px;
+  margin: 0 0 46px;
+}
+.home section { margin: 0 0 52px; }
+
+/* ---- 2. deliverables ------------------------------------------------------ */
+.deliverables { list-style: none; padding: 0; margin: 0; }
+.deliverables li {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.6;
+}
+.deliverables li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--slate);
+}
+.deliverables li:last-child { margin-bottom: 0; }
+
+/* ---- 3. the named process ------------------------------------------------- */
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 0; }
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  gap: 0 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+.steps li:last-child { border-bottom: 1px solid var(--border); }
+.steps li::before {
+  content: counter(step);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--slate-light);
+  padding-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.steps b { display: block; color: var(--ink); font-weight: 600; }
+.steps span { display: block; color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+
+/* ---- 4. the artifact ------------------------------------------------------ */
+.artifact { margin: 0 0 52px; }
 .panel {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -588,17 +802,9 @@ a:hover { color: var(--ink); }
 .panel-after { margin: 12px 0 0; font-size: 15px; }
 .panel-verdict { border-color: var(--border-ui); background: var(--surface-2); }
 
-.verdict { margin: 0 0 10px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
-.verdict b {
-  font-family: var(--font-ui);
-  font-size: 1.25rem;
-  letter-spacing: 0.1em;
-  color: var(--ink);
-  border: 1px solid var(--ink);
-  border-radius: 4px;
-  padding: 2px 10px;
-}
+.verdict { margin: 0 0 10px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; }
 .verdict-rule { color: var(--ink-2); font-size: 15px; min-width: 0; }
+
 
 /* ---- source, with real line numbers -------------------------------------- */
 /* The line numbers are the point: the artifact cites a file and a line, and the
@@ -620,26 +826,58 @@ a:hover { color: var(--ink); }
   font-variant-numeric: tabular-nums;
 }
 .src-t { padding-right: 12px !important; color: var(--ink); }
-/* One line carries the whole finding. It is marked with a rule and a weight,
-   not with colour alone — the three result hues are reserved, and a reader who
-   cannot separate them must still see which line this is about. */
+/* Marked with a rule and a weight, never with colour alone. */
 .src-hit td { background: var(--band); font-weight: 600; }
 .src-hit .src-n { box-shadow: inset 3px 0 0 var(--ink); color: var(--ink-2); }
 .src-table tr:first-child td { padding-top: 10px; }
 .src-table tr:last-child td { padding-bottom: 10px; }
 
-/* ---- the closing sections ------------------------------------------------ */
-.soft { color: var(--ink-2); font-size: 15px; }
-.examples { padding-left: 20px; margin: 12px 0 0; }
+.examples { padding-left: 20px; margin: 20px 0 0; }
 .examples li { margin-bottom: 10px; line-height: 1.55; }
+
+/* ---- 5. the measurement --------------------------------------------------- */
+.figures { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 0; }
+@media (max-width: 640px) { .figures { grid-template-columns: 1fr; gap: 26px; } }
+
+.figure { border-top: 2px solid var(--ink); padding-top: 14px; min-width: 0; }
+.figure-v { margin: 0 0 8px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 10px; }
+.figure-v b {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5.5vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+/* ⚠️ THE DENOMINATOR IS NOT SMALL PRINT. Same line, same ink family. A share
+   whose denominator is set in grey six-point type is a share that is hiding
+   what it was counted out of. */
+.figure-sub { font-family: var(--font-mono); font-size: 0.95rem; color: var(--ink-2); }
+.figure-body { margin: 0 0 10px; line-height: 1.6; font-size: 15px; }
+.figure-src { margin: 0; font-family: var(--font-ui); font-size: 12.5px; }
+
+/* ---- 6. the limits -------------------------------------------------------- */
+.limits { list-style: none; padding: 0; margin: 0 0 24px; }
+.limits li {
+  margin: 0 0 12px;
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.limits li::before { content: "\00b7"; position: absolute; left: 6px; color: var(--ink-3); font-weight: 700; }
+.limits b { color: var(--ink); }
+.closing-line { font-size: 1.08rem; color: var(--ink); margin: 0 0 16px; max-width: 34em; }
+.soft { color: var(--ink-2); font-size: 15px; }
 
 @media print {
   .figures { grid-template-columns: 1fr 1fr; gap: 18px; }
-  .figure, .panel, .artifact { break-inside: avoid; }
-  .panel { border-color: #ddd; background: #fff; }
+  .figure, .panel, .artifact, .steps li { break-inside: avoid; }
+  .panel, .band-section { border-color: #ddd; background: #fff; }
   .panel-verdict { background: #fff; }
   .src .std-table-wrap { border-color: #ddd; background: #fff; }
   .src-hit td { background: #f0f0f0; }
+  .cta-primary { background: none; color: inherit; border: 1px solid #999; }
   /* A printed page cannot scroll, so a long source line must wrap rather than
      be cut off at the paper edge. */
   .std-page .src-table td { white-space: pre-wrap; overflow-wrap: anywhere; }

@@ -19,11 +19,13 @@
 <meta name="twitter:description" content="Seven controls probed against two configurations of one reference agent. The hardened run produced 7 runtime_verified evidence items; the unsafe run produced 7 not_observed. 34 of 41 controls have no probe at all.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../../ars-assets/ars.css">
+
+<script>try{var t=localStorage.getItem('privi_theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body class="ars-delta">
 <link rel="stylesheet" href="../../ars-assets/delta.css">
 <main class="std-page">
-<nav class="sitenav no-print" aria-label="Site"><a href="../../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">Worked examples</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../engagement/">Work with us</a></nav>
+<nav class="sitenav no-print" aria-label="Site"><a href="../../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../standard/">The checks</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">Worked examples</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../../engagement/">Work with us</a><button class="theme-toggle" type="button" data-theme-toggle hidden>Dark</button></nav>
 <header class="std-crumb no-print"><a href="../../standard/">ARS v1.0</a> &rsaquo; <a href="../">Assurance delta</a> &rsaquo; Runtime evidence</header>
 <div class="std-doc">
 <h1>Runtime evidence</h1>
@@ -344,5 +346,6 @@ evidence that a control holds and evidence that it does not.</p>
 </footer>
 </div>
 </main>
+<script>(function(){var r=document.documentElement,b=document.querySelector('[data-theme-toggle]');if(!b)return;b.hidden=false;function s(){var d=r.dataset.theme==='dark';b.textContent=d?'Light':'Dark';b.setAttribute('aria-label','Switch to the '+(d?'light':'dark')+' theme')}s();b.addEventListener('click',function(){var n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('privi_theme',n)}catch(e){}s()})})()</script>
 </body>
 </html>

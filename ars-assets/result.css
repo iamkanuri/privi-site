@@ -1,0 +1,73 @@
+/* ===========================================================================
+   THE THREE RESERVED RESULT HUES — and the surfaces allowed to show them.
+
+   ⚠️ THIS IS A SEPARATE STYLESHEET ON PURPOSE, AND THE SEPARATION IS THE
+   ENFORCEMENT. `ars.css` is a document theme: the standard is a document and
+   nothing on it has failed, so its automation-flag badges are neutral ink and
+   not a red/amber/green scale. That property held because `ars.css` never
+   DEFINED crimson or sand — a stylesheet that does not carry a hue cannot
+   render it, by construction, whatever a future rule asks for.
+
+   A first attempt at the dark theme moved these tokens into `ars.css` and broke
+   that, which `test/report.test.mjs` and `test/site.test.mjs` both caught. They
+   live here instead. `/standard` links only `ars.css`; the surfaces that show a
+   RESULT — the home page's verdict, the report, the delta pages — link this too.
+
+   The values are ShopifyACO/viewer/src/theme.css v4.3, and the meanings are the
+   company's, one hue each across both products:
+
+     --pass             slate    #596C8E   PROMOTE · a check that passed
+     --requires-access  sand     #826738   REVIEW  · could not be determined
+     --not-proven       crimson  #BF3A4F   BLOCK   · a check that did not hold
+
+   Crimson appears ONLY where something did not hold. Not buttons, not links,
+   not headings, not hover states, not "danger" tiles. In a product whose entire
+   pitch is proof, the rarest colour on the page must be the one that means the
+   proof is missing.
+
+   ⚠️ AND NEVER COLOUR ALONE. Every state ships a glyph beside its hue, because
+   roughly one man in twelve cannot separate the crimson from the slate, and a
+   verdict carried by hue alone is a verdict those readers do not receive.
+
+   `test/palette.test.mjs` enforces all of the above, and six mutations were run
+   against it to prove each assertion bites.
+   =========================================================================== */
+
+:root {
+  --pass: #596c8e;                 /* ✓ slate */
+  --pass-soft: color-mix(in srgb, var(--pass) 12%, transparent);
+  --requires-access: #826738;      /* ○ sand, darkened at hue 38° for small text */
+  --requires-access-soft: color-mix(in srgb, var(--requires-access) 12%, transparent);
+  --not-proven: #bf3a4f;           /* ✕ crimson */
+  --not-proven-soft: color-mix(in srgb, var(--not-proven) 10%, transparent);
+}
+
+/* ⚠️ THE SAME TOKEN NAMES AS ABOVE, ALL OF THEM. A token declared in `:root`
+   and missing here means a dark visitor silently inherits the LIGHT value for
+   it — the exact bug the equivalent lens test exists for, and it is invisible
+   because everything else on the page looks right. */
+:root[data-theme='dark'] {
+  --pass: #7b9bc7;                 /* ✓ slate-light — base slate is ~2.5:1 on navy */
+  --pass-soft: color-mix(in srgb, var(--pass) 14%, transparent);
+  --requires-access: #d9b478;      /* ○ sand, lifted for navy at the same hue */
+  --requires-access-soft: color-mix(in srgb, var(--requires-access) 13%, transparent);
+  --not-proven: #ec657c;           /* ✕ crimson, lifted for navy at the same hue */
+  --not-proven-soft: color-mix(in srgb, var(--not-proven) 13%, transparent);
+}
+
+/* ---- BLOCK: the not-proven state, wearing the not-proven hue -------------- */
+.state-block {
+  font-family: var(--font-ui);
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  color: var(--not-proven);
+  border: 1px solid var(--not-proven);
+  background: var(--not-proven-soft);
+  border-radius: 4px;
+  padding: 2px 12px;
+}
+.state-block::before { content: "\2715\00a0\00a0"; }
+
+@media print {
+  .state-block { background: none; }
+}

@@ -19,10 +19,12 @@
 <meta name="twitter:description" content="41 checks for production agentic AI systems, across 8 tiers: whose identity the agent acts under, what it can destroy, who approved that, and how you would know afterwards. 20 are readable from code and configuration; 21 are not, and the document says which.">
 <meta name="twitter:image" content="https://thirdocular.com/og.png">
 <link rel="stylesheet" href="../ars-assets/ars.css">
+
+<script>try{var t=localStorage.getItem('privi_theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <main class="std-page">
-<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">The checks</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../engagement/">Work with us</a></nav>
+<nav class="sitenav no-print" aria-label="Site"><a href="../">PRIVI</a><span class="sitenav-sep" aria-hidden="true">·</span><span class="sitenav-here" aria-current="page">The checks</span><span class="sitenav-sep" aria-hidden="true">·</span><a href="../findings/">What we measured</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../assurance-delta/undeclared-capability/">Worked examples</a><span class="sitenav-sep" aria-hidden="true">·</span><a href="../engagement/">Work with us</a><button class="theme-toggle" type="button" data-theme-toggle hidden>Dark</button></nav>
 <header class="std-crumb no-print">
   <a href="../">ThirdOcular</a> &rsaquo; Agent Readiness Standard &rsaquo; v1.0
 </header>
@@ -1718,5 +1720,6 @@
 </footer>
 </div>
 </main>
+<script>(function(){var r=document.documentElement,b=document.querySelector('[data-theme-toggle]');if(!b)return;b.hidden=false;function s(){var d=r.dataset.theme==='dark';b.textContent=d?'Light':'Dark';b.setAttribute('aria-label','Switch to the '+(d?'light':'dark')+' theme')}s();b.addEventListener('click',function(){var n=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('privi_theme',n)}catch(e){}s()})})()</script>
 </body>
 </html>

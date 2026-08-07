@@ -1,0 +1,8 @@
+# Every file here is generated output, copied byte-for-byte from the build.
+#
+# ⚠️ NO LINE-ENDING CONVERSION. Without this, git rewrites the working copy to
+# CRLF on checkout, the emit then compares those bytes against an LF bundle and
+# reports every file as changed on every publish — a diff that is always dirty
+# is a diff nobody reads. It also means the CNAME on disk stops being the one
+# line the build wrote.
+* -text
